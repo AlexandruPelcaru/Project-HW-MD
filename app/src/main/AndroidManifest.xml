@@ -46,10 +46,6 @@
             android:name=".ProfileActivity"
             android:label="@string/title_activity_profile" >
         </activity>
-        <activity
-            android:name=".ChangePassActivity"
-            android:label="@string/title_activity_change_pass" >
-        </activity>
     </application>
 
 </manifest>

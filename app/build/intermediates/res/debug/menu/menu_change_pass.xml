@@ -4,4 +4,4 @@
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" android:showAsAction="never" />
 </menu>
-<!-- From: file:/C:/Users/Boo/Desktop/MobileDev/app/src/main/res/menu/menu_change_pass.xml -->
+<!-- From: file:/C:/Users/Boo/AndroidStudioProjects/MobileDev/app/src/main/res/menu/menu_change_pass.xml -->
