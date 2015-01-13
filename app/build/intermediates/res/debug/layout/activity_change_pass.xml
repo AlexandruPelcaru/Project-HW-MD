@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/etOldPasswordChange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Type old Password" >
+
+        <requestFocus />
+    </EditText>
+
+
+    <EditText
+        android:id="@+id/etNewPasswordChange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Type new Password" >
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/etRePasswordChange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Re-type new password" >
+
+    </EditText>
+
+
+
+    <Button
+        android:id="@+id/btnSavePass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="Save New Password" />
+
+
+
+
+
+
+</LinearLayout>
+<!-- From: file:/C:/Users/Boo/Desktop/MobileDev/app/src/main/res/layout/activity_change_pass.xml -->

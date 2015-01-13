@@ -1,0 +1,6 @@
+C:\Users\Boo\AndroidStudioProjects\MobileDev\app\build\intermediates\classes\debug
+C:\Users\Boo\AndroidStudioProjects\MobileDev\app\build\intermediates\pre-dexed\debug\bolts-android-1.1.4-97be4183a17d6cef47361b4a4acc15ec59473df8.jar
+C:\Users\Boo\AndroidStudioProjects\MobileDev\app\build\intermediates\pre-dexed\debug\ParseCrashReporting-1.8.1-cb71ceb4883420e18605e68e94196ad6e6e9ccbc.jar
+C:\Users\Boo\AndroidStudioProjects\MobileDev\app\build\intermediates\pre-dexed\debug\bolts-android-1.1.4-javadoc-20ae43feef50a5cec81098663ad9c82e83e1fd75.jar
+C:\Users\Boo\AndroidStudioProjects\MobileDev\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-4d0e126142eac76ae9afe8b26a076d0e9338c6d4.jar
+C:\Users\Boo\AndroidStudioProjects\MobileDev\app\build\intermediates\pre-dexed\debug\Parse-1.8.1-2ca461f51ce8b6d114dabfc6ba238f67ce5ef416.jar

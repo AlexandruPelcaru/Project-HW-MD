@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Boo\AndroidStudioProjects\MobileDev\app\libs\bolts-android-1.1.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="129874135e6081269ace2312092031558865de12">
+        <dex dex="C:\Users\Boo\AndroidStudioProjects\MobileDev\app\build\intermediates\pre-dexed\debug\bolts-android-1.1.4-97be4183a17d6cef47361b4a4acc15ec59473df8.jar" />
+    </item>
+    <item
+        jar="C:\Users\Boo\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="C:\Users\Boo\AndroidStudioProjects\MobileDev\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-4d0e126142eac76ae9afe8b26a076d0e9338c6d4.jar" />
+    </item>
+    <item
+        jar="C:\Users\Boo\AndroidStudioProjects\MobileDev\app\libs\ParseCrashReporting-1.8.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01cd6a9702d4fdba38c93426da8f2fffc738e107">
+        <dex dex="C:\Users\Boo\AndroidStudioProjects\MobileDev\app\build\intermediates\pre-dexed\debug\ParseCrashReporting-1.8.1-cb71ceb4883420e18605e68e94196ad6e6e9ccbc.jar" />
+    </item>
+    <item
+        jar="C:\Users\Boo\AndroidStudioProjects\MobileDev\app\libs\Parse-1.8.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="dd491448169a0c142a786164b249139d2407a6f9">
+        <dex dex="C:\Users\Boo\AndroidStudioProjects\MobileDev\app\build\intermediates\pre-dexed\debug\Parse-1.8.1-2ca461f51ce8b6d114dabfc6ba238f67ce5ef416.jar" />
+    </item>
+    <item
+        jar="C:\Users\Boo\AndroidStudioProjects\MobileDev\app\libs\bolts-android-1.1.4-javadoc.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f5dd6492c539679411fa30818320b737c410158f">
+        <dex dex="C:\Users\Boo\AndroidStudioProjects\MobileDev\app\build\intermediates\pre-dexed\debug\bolts-android-1.1.4-javadoc-20ae43feef50a5cec81098663ad9c82e83e1fd75.jar" />
+    </item>
+
+</items>

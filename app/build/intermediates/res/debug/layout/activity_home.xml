@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/tvWeather"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="#2d3d5f"
+        android:gravity="center_vertical"
+        android:text="Current Degrees:"
+        android:textColor="#ffffff"
+        android:textSize="22sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#023a5D"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/etCity"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint="City: "/>
+
+        <Button
+            android:id="@+id/btnGetWeather"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Request" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnProfile"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="My Profile" />
+
+    <Button
+        android:id="@+id/btnAddLinks"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Add Links" />
+
+    <ListView
+        android:id="@+id/lvLinkuri"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </ListView>
+
+</LinearLayout><!-- From: file:/C:/Users/Boo/Desktop/MobileDev/app/src/main/res/layout/activity_home.xml -->
