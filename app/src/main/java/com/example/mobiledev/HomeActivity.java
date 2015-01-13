@@ -33,54 +33,54 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 public class HomeActivity extends Activity {
-    String baseURL = "http://api.openweathermap.org/data/2.5/weather?q=";
-    String endBaseURL = "&units=metric";
-    private EditText etCity;
-    private TextView tvWeather;
-    private Button btnRequest, btnProfile;
-    private ListView lvLinks;
-    private AdapterLinks adapter = new AdapterLinks();
-    boolean check = false;
-    JSONParse asyncTask;
-    private List<LinkModel> linkList = new ArrayList<LinkModel>();
+	String baseURL = "http://api.openweathermap.org/data/2.5/weather?q=";
+	String endBaseURL = "&units=metric";
+	private EditText etCity;
+	private TextView tvWeather;
+	private Button btnRequest, btnProfile;
+	private ListView lvLinks;
+	private AdapterLinks adapter = new AdapterLinks();
+	boolean check = false;
+	JSONParse asyncTask;
+	private List<LinkModel> linkList = new ArrayList<LinkModel>();
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
 
-        tvWeather = (TextView) findViewById(R.id.tvWeather);
-        etCity = (EditText) findViewById(R.id.etCity);
+		tvWeather = (TextView) findViewById(R.id.tvWeather);
+		etCity = (EditText) findViewById(R.id.etCity);
 
-        btnRequest = (Button) findViewById(R.id.btnGetWeather);
+		btnRequest = (Button) findViewById(R.id.btnGetWeather);
         btnProfile = (Button) findViewById(R.id.btnProfile);
-        lvLinks = (ListView) findViewById(R.id.lvLinkuri);
-        tvWeather.setText("Current Degrees: Not requested");
-        getAllLinks();
-        System.out.println(baseURL);
-        btnRequest.setOnClickListener(new OnClickListener() {
+		lvLinks = (ListView) findViewById(R.id.lvLinkuri);
+		tvWeather.setText("Current Degrees: Not requested");
+		getAllLinks();
+		System.out.println(baseURL);
+		btnRequest.setOnClickListener(new OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
+			@Override
+			public void onClick(View v) {
                 String etCityString=etCity.getText().toString().trim();
-                if (!etCityString.equals("")) {
-                    baseURL = baseURL + (etCity.getText().toString())
-                            + endBaseURL;
-                    // Log.e("TAG","dasdasfsafsfasdfadfdafadfdfsdfadgsdgsadgsa");
-                    check = true;
-                }
-                if (check == true) {
-                    if (isNetworkAvailable() == true) {
-                        asyncTask = (JSONParse) new JSONParse().execute();
-                    } else {
-                        tvWeather.setText("No Internet Connection");
-                    }
-                } else {
-                    Toast.makeText(getApplicationContext(), "No city inserted",
-                            Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+				if (!etCityString.equals("")) {
+					baseURL = baseURL + (etCity.getText().toString())
+							+ endBaseURL;
+                   // Log.e("TAG","dasdasfsafsfasdfadfdafadfdfsdfadgsdgsadgsa");
+					check = true;
+				}
+				if (check == true) {
+					if (isNetworkAvailable() == true) {
+						asyncTask = (JSONParse) new JSONParse().execute();
+					} else {
+						tvWeather.setText("No Internet Connection");
+					}
+				} else {
+					Toast.makeText(getApplicationContext(), "No city inserted",
+							Toast.LENGTH_LONG).show();
+				}
+			}
+		});
 
         btnProfile.setOnClickListener(new OnClickListener() {
             @Override
@@ -90,85 +90,85 @@ public class HomeActivity extends Activity {
             }
         });
 
-        lvLinks.setOnItemClickListener(new OnItemClickListener() {
+		lvLinks.setOnItemClickListener(new OnItemClickListener() {
 
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(linkList.get(position).getAddress()));
-                startActivity(i);
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				Intent i = new Intent(Intent.ACTION_VIEW);
+				i.setData(Uri.parse(linkList.get(position).getAddress()));
+				startActivity(i);
 
-            }
-        });
+			}
+		});
 
-    }
+	}
 
-    private class JSONParse extends AsyncTask<String, String, JSONObject> {
-        private ProgressDialog pDialog;
+	private class JSONParse extends AsyncTask<String, String, JSONObject> {
+		private ProgressDialog pDialog;
 
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            pDialog = new ProgressDialog(HomeActivity.this);
-            pDialog.setMessage("Getting data...");
-            pDialog.show();
-        }
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			pDialog = new ProgressDialog(HomeActivity.this);
+			pDialog.setMessage("Getting data...");
+			pDialog.show();
+		}
 
-        @Override
-        protected JSONObject doInBackground(String... args) {
-            JSONParser jParser = new JSONParser();
-            // Getting JSON from URL
-            JSONObject json = jParser.getJSONFromUrl(baseURL);
-            return json;
-        }
+		@Override
+		protected JSONObject doInBackground(String... args) {
+			JSONParser jParser = new JSONParser();
+			// Getting JSON from URL
+			JSONObject json = jParser.getJSONFromUrl(baseURL);
+			return json;
+		}
 
-        @Override
-        protected void onPostExecute(JSONObject json) {
-            pDialog.dismiss();
-            try {
-                JSONArray array = new JSONArray();
-                json.toJSONArray(array);
-                JSONObject x = json.getJSONObject("main");
-                tvWeather.setText("Current Degrees: " + x.getString("temp")+"°C");
+		@Override
+		protected void onPostExecute(JSONObject json) {
+			pDialog.dismiss();
+			try {
+				JSONArray array = new JSONArray();
+				json.toJSONArray(array);
+				JSONObject x = json.getJSONObject("main");
+				tvWeather.setText("Current Degrees: " + x.getString("temp")+"°C");
 
-            } catch (JSONException e) {
-                tvWeather.setText("Current Degrees: Not Available");
-                e.printStackTrace();
-            }
-        }
+			} catch (JSONException e) {
+				tvWeather.setText("Current Degrees: Not Available");
+				e.printStackTrace();
+			}
+		}
 
-    }
+	}
 
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager
-                .getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
+	private boolean isNetworkAvailable() {
+		ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo activeNetworkInfo = connectivityManager
+				.getActiveNetworkInfo();
+		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+	}
 
-    private void getAllLinks() {
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Linkuri");
-        query.whereEqualTo("userID", ParseUser.getCurrentUser().getObjectId());
-        try {
-            List<ParseObject> objects = query.find();
-            if (objects.size() > 0) {
-                Log.e("size mai mare ca 0", objects.size() + " ");
-                for (ParseObject object : objects) {
-                    LinkModel link = new LinkModel();
-                    link.setAddress(object.getString("adresa"));
-                    link.setName(object.getString("denumire"));
-                    link.setUser(ParseUser.getCurrentUser().getObjectId());
-                    linkList.add(link);
-                }
+	private void getAllLinks() {
+		ParseQuery<ParseObject> query = ParseQuery.getQuery("Linkuri");
+		query.whereEqualTo("userID", ParseUser.getCurrentUser().getObjectId());
+		try {
+			List<ParseObject> objects = query.find();
+			if (objects.size() > 0) {
+				Log.e("size mai mare ca 0", objects.size() + " ");
+				for (ParseObject object : objects) {
+					LinkModel link = new LinkModel();
+					link.setAddress(object.getString("adresa"));
+					link.setName(object.getString("denumire"));
+					link.setUser(ParseUser.getCurrentUser().getObjectId());
+					linkList.add(link);
+				}
 
-                adapter = new AdapterLinks(getApplicationContext(), linkList);
-                lvLinks.setAdapter(adapter);
+				adapter = new AdapterLinks(getApplicationContext(), linkList);
+				lvLinks.setAdapter(adapter);
 
-            }
-        } catch (ParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
+			}
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

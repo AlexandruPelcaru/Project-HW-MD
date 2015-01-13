@@ -1,12 +1,64 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.mobiledev.ChangePassActivity">
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/etOldPasswordChange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Type old Password" >
 
-</RelativeLayout>
+        <requestFocus />
+    </EditText>
+
+
+    <EditText
+        android:id="@+id/etNewPasswordChange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Type new Password" >
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/etRePasswordChange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Re-type new password" >
+
+    </EditText>
+
+
+
+    <Button
+        android:id="@+id/btnSavePass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="Save New Password" />
+
+
+
+
+
+
+</LinearLayout>
