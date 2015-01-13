@@ -46,6 +46,14 @@
             android:name=".ProfileActivity"
             android:label="@string/title_activity_profile" >
         </activity>
+        <activity
+            android:name=".AdapterLinks"
+            android:label="@string/title_activity_adapter_links" >
+        </activity>
+        <activity
+            android:name=".ChangePassActivity"
+            android:label="@string/title_activity_change_pass" >
+        </activity>
     </application>
 
 </manifest>

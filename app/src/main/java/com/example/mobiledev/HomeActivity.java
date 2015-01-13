@@ -39,9 +39,10 @@ public class HomeActivity extends Activity {
     private TextView tvWeather;
     private Button btnRequest, btnProfile;
     private ListView lvLinks;
+    private AdapterLinks adapter = new AdapterLinks();
     boolean check = false;
     JSONParse asyncTask;
-
+    private List<LinkModel> linkList = new ArrayList<LinkModel>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,8 @@ public class HomeActivity extends Activity {
         btnProfile = (Button) findViewById(R.id.btnProfile);
         lvLinks = (ListView) findViewById(R.id.lvLinkuri);
         tvWeather.setText("Current Degrees: Not requested");
-
+        getAllLinks();
+        System.out.println(baseURL);
         btnRequest.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -64,7 +66,7 @@ public class HomeActivity extends Activity {
                 if (!etCityString.equals("")) {
                     baseURL = baseURL + (etCity.getText().toString())
                             + endBaseURL;
-
+                    // Log.e("TAG","dasdasfsafsfasdfadfdafadfdfsdfadgsdgsadgsa");
                     check = true;
                 }
                 if (check == true) {
@@ -93,7 +95,9 @@ public class HomeActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(linkList.get(position).getAddress()));
+                startActivity(i);
 
             }
         });
@@ -143,5 +147,28 @@ public class HomeActivity extends Activity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
+    private void getAllLinks() {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Linkuri");
+        query.whereEqualTo("userID", ParseUser.getCurrentUser().getObjectId());
+        try {
+            List<ParseObject> objects = query.find();
+            if (objects.size() > 0) {
+                Log.e("size mai mare ca 0", objects.size() + " ");
+                for (ParseObject object : objects) {
+                    LinkModel link = new LinkModel();
+                    link.setAddress(object.getString("adresa"));
+                    link.setName(object.getString("denumire"));
+                    link.setUser(ParseUser.getCurrentUser().getObjectId());
+                    linkList.add(link);
+                }
 
+                adapter = new AdapterLinks(getApplicationContext(), linkList);
+                lvLinks.setAdapter(adapter);
+
+            }
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 }
