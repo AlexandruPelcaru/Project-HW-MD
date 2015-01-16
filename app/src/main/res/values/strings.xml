@@ -9,5 +9,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_change_pass">ChangePassActivity</string>
     <string name="title_activity_news">NewsActivity</string>
+    <string name="title_activity_change_news">ChangeNewsActivity</string>
 
 </resources>

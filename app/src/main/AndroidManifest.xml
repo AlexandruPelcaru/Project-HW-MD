@@ -54,6 +54,10 @@
             android:name=".NewsActivity"
             android:label="@string/title_activity_news" >
         </activity>
+        <activity
+            android:name=".ChangeNewsActivity"
+            android:label="@string/title_activity_change_news" >
+        </activity>
     </application>
 
 </manifest>

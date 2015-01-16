@@ -1,0 +1,142 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Music"
+            android:layout_marginLeft="10dp"
+            android:textSize="25sp" />
+
+        <RadioGroup
+            android:id="@+id/rgMusic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/rPop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pop" />
+
+            <RadioButton
+                android:id="@+id/rRock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rock" />
+
+            <RadioButton
+                android:id="@+id/rCommercial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Commercial" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Movies"
+            android:layout_marginLeft="10dp"
+            android:textSize="25sp" />
+
+        <RadioGroup
+            android:id="@+id/rgMovies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/rStarWars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Star Wars" />
+
+            <RadioButton
+                android:id="@+id/rAvengers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Avengers" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Games"
+            android:layout_marginLeft="10dp"
+            android:textSize="25sp" />
+
+        <RadioGroup
+            android:id="@+id/rgGames"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/rBioshock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bioshock" />
+
+            <RadioButton
+                android:id="@+id/rMassEffect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mass Effect" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Books"
+            android:layout_marginLeft="10dp"
+            android:textSize="25sp" />
+
+        <RadioGroup
+            android:id="@+id/rgBooks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/rSF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SF" />
+
+            <RadioButton
+                android:id="@+id/rSchool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="School" />
+
+            <RadioButton
+                android:id="@+id/rLogic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Logic" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnSaveNews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
+            android:text="Save Changes" />
+    </LinearLayout>
+
+</RelativeLayout>

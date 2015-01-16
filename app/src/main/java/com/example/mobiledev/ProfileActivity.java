@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -13,12 +14,10 @@ import android.widget.Toast;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
-import com.parse.SignUpCallback;
-
 
 public class ProfileActivity extends Activity {
 
-    private Button changePass, saveChanges, logOut;
+    private Button changePass, saveChanges, logOut, changeNews;
     private EditText Etfname, Etlname, Etage, Etaddress, Etmobilno, Etgender;
     private String fname, lname, age, address, mobilno, gender;
     private ParseUser user;
@@ -35,7 +34,6 @@ public class ProfileActivity extends Activity {
         Etmobilno = (EditText) findViewById(R.id.etMobileNo);
         Etgender = (EditText) findViewById(R.id.etGender);
 
-
         user = ParseUser.getCurrentUser();
         String parseFname = (String) user.get("FirstName");
         String parseLname = (String) user.get("LastName");
@@ -43,7 +41,6 @@ public class ProfileActivity extends Activity {
         String parseGender = (String) user.get("gender");
         String parseMobileNo = (String) user.get("phoneNumber");
         String parseAddress = (String) user.get("address");
-
 
         if (user.get("FirstName") != null) {
             Etfname.setText(parseFname);
@@ -64,13 +61,12 @@ public class ProfileActivity extends Activity {
             Etaddress.setText(parseAddress);
         }
 
-
         changePass = (Button) findViewById(R.id.btnChangePassword);
         saveChanges = (Button) findViewById(R.id.btnSaveProfile);
+        changeNews = (Button) findViewById(R.id.btnChangeNews);
         logOut = (Button) findViewById(R.id.btnLogOut);
 
-
-        saveChanges.setOnClickListener(new View.OnClickListener() {
+        saveChanges.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 fname = Etfname.getText().toString();
@@ -99,29 +95,43 @@ public class ProfileActivity extends Activity {
             }
         });
 
+        logOut.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProfileActivity.this,
+                        MainActivity.class));
+                System.exit(0);
+            }
+        });
 
-
-        changePass.setOnClickListener(new View.OnClickListener() {
+        changePass.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ProfileActivity.this,
                         ChangePassActivity.class));
             }
         });
+        changeNews.setOnClickListener(new OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfileActivity.this,
+                        ChangeNewsActivity.class));
+
+            }
+        });
 
     }
 
     public void onSaveFinished(String error) {
         if (error.equals("")) {
 
-            Toast.makeText(getApplicationContext(), "Save sucessfull", Toast.LENGTH_LONG)
-                    .show();
+            Toast.makeText(getApplicationContext(), "Save Succesfull",
+                    Toast.LENGTH_LONG).show();
             finish();
-            startActivity(getIntent());
         } else {
-            Toast.makeText(getApplicationContext(), "Save unsucessfull", Toast.LENGTH_LONG)
-                    .show();
+            Toast.makeText(getApplicationContext(), "Save Unsuccesfull",
+                    Toast.LENGTH_LONG).show();
         }
     }
 
@@ -139,7 +149,7 @@ public class ProfileActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        // noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
