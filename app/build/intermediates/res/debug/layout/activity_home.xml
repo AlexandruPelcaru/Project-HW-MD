@@ -26,14 +26,13 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:ems="10"
-            android:hint="City: "/>
+            android:hint="City: " />
 
         <Button
             android:id="@+id/btnGetWeather"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Request" />
-
     </LinearLayout>
 
     <Button
@@ -42,11 +41,34 @@
         android:layout_height="50dp"
         android:text="My Profile" />
 
+    <EditText
+        android:id="@+id/etAddLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Link to be added"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/etAddLinkDenumire"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Name link"
+        android:inputType="text" />
+
+
     <Button
         android:id="@+id/btnAddLinks"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Add Links" />
+
+    <Button
+        android:id="@+id/btnSeeNews"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="News" />
 
     <ListView
         android:id="@+id/lvLinkuri"

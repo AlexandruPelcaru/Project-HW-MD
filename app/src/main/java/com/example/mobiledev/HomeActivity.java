@@ -31,13 +31,14 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 public class HomeActivity extends Activity {
 	String baseURL = "http://api.openweathermap.org/data/2.5/weather?q=";
 	String endBaseURL = "&units=metric";
-	private EditText etCity;
+	private EditText etCity, etAddLink, etAddLinkDenumire;
 	private TextView tvWeather;
-	private Button btnRequest, btnProfile;
+	private Button btnRequest, btnProfile, btnAddLink, btnNews;
 	private ListView lvLinks;
 	private AdapterLinks adapter = new AdapterLinks();
 	boolean check = false;
@@ -51,9 +52,14 @@ public class HomeActivity extends Activity {
 
 		tvWeather = (TextView) findViewById(R.id.tvWeather);
 		etCity = (EditText) findViewById(R.id.etCity);
+        etAddLink=(EditText) findViewById(R.id.etAddLink);
+        etAddLinkDenumire = (EditText) findViewById(R.id.etAddLinkDenumire);
 
 		btnRequest = (Button) findViewById(R.id.btnGetWeather);
         btnProfile = (Button) findViewById(R.id.btnProfile);
+        btnAddLink = (Button) findViewById(R.id.btnAddLinks);
+        btnNews = (Button) findViewById(R.id.btnSeeNews);
+
 		lvLinks = (ListView) findViewById(R.id.lvLinkuri);
 		tvWeather.setText("Current Degrees: Not requested");
 		getAllLinks();
@@ -82,6 +88,58 @@ public class HomeActivity extends Activity {
 			}
 		});
 
+        btnNews.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, NewsActivity.class));
+
+            }
+        });
+
+        btnAddLink.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ParseObject link = new ParseObject("Linkuri");
+                String etAddLinkString = etAddLink.getText().toString();
+                String etAddLinkDenumireString = etAddLinkDenumire.getText().toString();
+
+                if(etAddLinkString!=null && etAddLinkDenumireString!=null) {
+                    link.put("denumire", etAddLinkDenumireString);
+                    link.put("adresa", etAddLinkString);
+                    link.put("userID", ParseUser.getCurrentUser().getObjectId());
+
+                    link.saveInBackground(new SaveCallback() {
+
+                        @Override
+                        public void done(ParseException e) {
+                            if (e == null) {
+                                onSaveFinished("");
+                            } else {
+                                onSaveFinished(e.getMessage());
+                            }
+                        }
+                    });
+                }
+                else
+                {
+                    if(etAddLinkString==null) {
+                        Toast.makeText(getApplicationContext(), "Fill in the link address",
+                                Toast.LENGTH_LONG).show();
+                    }
+                    else if(etAddLinkDenumireString==null){
+                        Toast.makeText(getApplicationContext(), "Fill in the name of the link",
+                                Toast.LENGTH_LONG).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(), "Fill in the name and address of the link",
+                                Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        });
+
         btnProfile.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,6 +161,19 @@ public class HomeActivity extends Activity {
 		});
 
 	}
+
+    public void onSaveFinished(String error) {
+        if (error.equals("")) {
+
+            Toast.makeText(getApplicationContext(), "Add Succesfull", Toast.LENGTH_LONG)
+                    .show();
+            finish();
+            startActivity(getIntent());
+        } else {
+            Toast.makeText(getApplicationContext(), "Add Unsuccesfull", Toast.LENGTH_LONG)
+                    .show();
+        }
+    }
 
 	private class JSONParse extends AsyncTask<String, String, JSONObject> {
 		private ProgressDialog pDialog;

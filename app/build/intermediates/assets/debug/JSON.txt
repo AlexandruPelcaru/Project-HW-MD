@@ -1,0 +1,56 @@
+{
+  "first":{
+    "music":{
+      "interest":"music",
+      "type":"Button",
+      "label":"Get some music",
+      "link":"https://www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+      "description":"none",
+      "action":"linkAction"
+    },
+    "viral":{
+      "type":"Button",
+      "label":"Ziua Izabellei <3",
+      "link":"https://www.facebook.com/events/634769329975030/",
+      "description":"none",
+      "action":"linkAction"
+    },
+	"call":{
+      "type":"Button",
+      "label":"Andrei",
+      "link":"0745314873",
+      "description":"none",
+      "action":"linkAction"
+    }
+  },
+  "second":{
+   "bioshock": {
+      "type":"Link",
+      "label":"Bioshock",
+      "link":"https://www.2kgames.com/bioshock/",
+      "description":"none",
+      "action":"linkAction"
+    },
+   "massEffect": {
+      "type":"Link",
+      "label":"Gamespot",
+      "link":"http://masseffect.bioware.com/",
+      "description":"none",
+      "action":"linkAction"
+    }
+  },
+  "third":{
+    "starwars":{
+      "type":"textView",
+      "label":"Star Wars",
+      "description":"Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a wookiee and two droids to save the universe from the Empire's world-destroying battle-station, while also attempting to rescue Princess Leia from the evil Darth Vader.",
+      "action":"none"
+    },
+   "avengers": {
+      "type":"textView",
+      "label":"Age of Ultron",
+      "description":"When Tony Stark tries to jumpstart a dormant peacekeeping program, things go awry and it is up to the Avengers to stop the villainous Ultron from enacting his terrible plans.",
+      "action":"none"
+    }
+  }
+}

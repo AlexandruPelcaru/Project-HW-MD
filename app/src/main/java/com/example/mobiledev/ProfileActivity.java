@@ -99,14 +99,7 @@ public class ProfileActivity extends Activity {
             }
         });
 
-        logOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(ProfileActivity.this,
-                        MainActivity.class));
-                System.exit(0);
-            }
-        });
+
 
         changePass.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,11 +115,12 @@ public class ProfileActivity extends Activity {
     public void onSaveFinished(String error) {
         if (error.equals("")) {
 
-            Toast.makeText(getApplicationContext(), "Save Succesfull", Toast.LENGTH_LONG)
+            Toast.makeText(getApplicationContext(), "Save sucessfull", Toast.LENGTH_LONG)
                     .show();
             finish();
+            startActivity(getIntent());
         } else {
-            Toast.makeText(getApplicationContext(), "Save Unsuccesfull", Toast.LENGTH_LONG)
+            Toast.makeText(getApplicationContext(), "Save unsucessfull", Toast.LENGTH_LONG)
                     .show();
         }
     }
